@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar and Spell Checker - Result</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap">
+    <style>
+        body {
+            min-height: 100vh;
+            background: rgb(74,189,172);
+            background: radial-gradient(circle, rgba(74,189,172,1) 0%, rgba(88,212,193,1) 100%);
+            display: grid;
+            place-content: center;
+            font-family: 'Poppins', sans-serif;
+            padding: 0 2.5em;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            text-transform: uppercase;
+        }
+        p {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        symbol path {
+            fill: rgba(255, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grammar and Spell Checker - Result</h1>
+        <p><strong>Original Text:</strong></p>
+        <p>{{ text }}</p>
+        <p><strong>Corrections:</strong></p>
+        <ul>
+            {% for correction in corrections %}
+                <li>{{ correction.message }} ({{ correction.replacements }})</li>
+            {% endfor %}
+        </ul>
+        <a href="/">Go Back</a>
+    </div>
+    <svg id="hearts" viewBox="-600 -400 1200 800" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <symbol id="heart" viewBox="-69 -16 138 138">
+            <path d="M0,12
+                     C 50,-30 110,50  0,120
+                     C-110,50 -50,-30 0,12z"/>
+          </symbol>
+        </defs>
+    </svg>
+    <script src="/static/js/js.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar and Spell Checker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap">
+    <style>
+        body {
+            min-height: 100vh;
+            background: rgb(74,189,172);
+            background: radial-gradient(circle, rgba(74,189,172,1) 0%, rgba(88,212,193,1) 100%);
+            display: grid;
+            place-content: center;
+            font-family: 'Poppins', sans-serif;
+            padding: 0 2.5em;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            text-transform: uppercase;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        textarea, input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="submit"]:hover,input[type="submit"]:focus {
+            background-color: #d2118e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .upload-section {
+            margin-top: 20px;
+        }
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        symbol path {
+            fill: rgba(255, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grammar and Spell Checker</h1>
+        <form action="/check" method="post">
+            <textarea name="text" rows="10" placeholder="Enter text to check..."></textarea>
+            <input class="custom-btn btn-3" type="submit" value="Check">
+        </form>
+        <div class="upload-section">
+            <h2>Upload a file to check:</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="submit" value="Upload and Check">
+            </form>
+        </div>
+    </div>
+    <svg id="hearts" viewBox="-600 -400 1200 800" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <symbol id="heart" viewBox="-69 -16 138 138">
+            <path d="M0,12
+                     C 50,-30 110,50  0,120
+                     C-110,50 -50,-30 0,12z"/>
+          </symbol>
+        </defs>
+    </svg>
+    <script src="/static/js/js.js"></script>
+</body>
+</html>
