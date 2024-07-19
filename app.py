@@ -8,7 +8,7 @@ from grammar_checker import GrammarChecker
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'txt', 'docx'}
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.', static_folder='static')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 checker = GrammarChecker('en-US')
 
